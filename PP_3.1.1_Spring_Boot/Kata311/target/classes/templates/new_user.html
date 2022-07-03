@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New user</title>
+</head>
+<body>
+<table>
+    <tbody>
+    <form method="POST" th:action="@{/users}" th:object="${user}">
+        <tr>
+            <td><th><p align="center">ID</p></th></td>
+            <td><input type="text" th:field="*{id}" id="idAddUser" align="center" readonly></td>
+        </tr>
+        <tr>
+            <td><th><p align="center">Name</p></th></td>
+            <td><input type="text" th:field="*{name}" id="nameAddUser" align="center"></td>
+        </tr>
+        <tr>
+            <td><th><p align="center">Surname</p></th></td>
+            <td><input type="text" th:field="*{surname}" id="surnameAddUser" align="center"></td>
+        </tr>
+        <tr>
+            <td><th><p align="center">Address</p></th></td>
+            <td><input type="text" th:field="*{address}" id="addressAddUser" align="center"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Save user"></td>
+        </tr>
+    </form>
+    </tbody>
+</table>
+</body>
+</html>

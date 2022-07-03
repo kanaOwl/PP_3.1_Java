@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<table border="1" width="80%">
+    <tr>
+        <th><p align="center">ID</p></th>
+        <th><p align="center">Name</p></th>
+        <th><p align="center">Surname</p></th>
+        <th><p align="center">Address</p></th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="user : ${users}">
+        <tr>
+            <td th:text="${user.id}" align="center" width="5%"></td>
+            <td th:text="${user.name}" align="center" width="15%"></td>
+            <td th:text="${user.surname}" align="center" width="18%"></td>
+            <td th:text="${user.address}" align="center" width="22%"></td>
+            <form th:action="@{/edit/{id}(id=${user.getId()})}">
+                <td><input type="submit" value="Edit user" style="background-color: white; color: black; border: 2px solid blue"></td>
+            </form>
+            <form th:action="@{/delete/{id}(id=${user.getId()})}">
+                <td><input type="submit" value="Delete user" style="background-color: white; color: black; border: 2px solid red"></td>
+            </form>
+        </tr>
+    </th:block>
+    </tbody>
+    <form th:action="@{/new_user}">
+        <td><input type="submit" value="Add user" style="background-color: white; color: black; border: 2px solid #4CAF50"></td>
+    </form>
+</table>
+</body>
+</html>
