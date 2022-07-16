@@ -156,6 +156,7 @@ public class User implements UserDetails {
         StringBuilder sb = new StringBuilder();
         for (Role role : roles) {
             sb.append(role.toString());
+            sb.append(" ");
         }
         return sb.toString();
     }
