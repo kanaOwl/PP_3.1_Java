@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Check user</title>
+    </head>
+    <body>
+    <form th:action="@{/logout}" method="post">
+        <button class="btnLogout" style="border-radius: 10px 10px 10px 10px; border-color: #a19898" type="submit">Logout</button>
+    </form>
+        <table class="table table-striped table-hover" style="border-radius: 10px 10px 10px 10px; border-color: #a19898" align="center">
+            <thead style="border-radius: 10px 10px 10px 10px; border-color: #a19898; border-width: medium"></thead>
+            <tbody>
+                <th:block th:object="${user}">
+                    <form th:method="PATCH" th:action="@{/admin/edit/{id}(id=${user.getId()})}">
+                        <tr class="rowTable3">
+                            <td><th><p align="center">ID:</p></th></td>
+                            <td><input type="text" th:field="*{id}" id="idEdite" align="center" style="border-radius: 10px 10px 10px 10px; border-color: #a19898" readonly></td>
+                        </tr>
+                        <tr>
+                            <td><th><p align="center">Name:</p></th></td>
+                            <td><input type="text" th:field="*{name}" id="nameEdite" align="center" style="border-radius: 10px 10px 10px 10px; border-color: #a19898"></td>
+                        </tr>
+                        <tr>
+                            <td><th><p align="center">Surname:</p></th></td>
+                            <td><input type="text" th:field="*{surname}" id="surnameEdite" align="center" style="border-radius: 10px 10px 10px 10px; border-color: #a19898"></td>
+                        </tr>
+                        <tr>
+                            <td><th><p align="center">Username:</p></th></td>
+                            <td><input type="text" th:field="*{username}" id="usernameEdite" align="center" style="border-radius: 10px 10px 10px 10px; border-color: #a19898"></td>
+                        </tr>
+                        <tr>
+                            <td><th><p align="center">Password:</p></th></td>
+                            <td><input type="text" th:field="*{password}" id="passwordEdite" align="center" style="border-radius: 10px 10px 10px 10px; border-color: #a19898"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <th><p align="center">Role:</p></th>
+                            </td>
+                            <td>
+                                <select id="roleAdmin" name="roleAdmin" class="form-select" multiple size="2" aria-label="multiple select example" style="border-radius: 10px 10px 10px 10px;">
+                                    <option th:value="ADMIN" th:checked="ADMIN" th:text="ADMIN"></option>
+                                    <option th:value="USER" th:checked="ADMIN" th:text="USER"></option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="submit" value="Save user" style="border-radius: 10px 10px 10px 10px; border-color: #a19898"></td>
+                        </tr>
+                    </form>
+                </th:block>
+            </tbody>
+        </table>
+    </body>
+</html>
+
+
+
