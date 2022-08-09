@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check user</title>
+</head>
+<body>
+<form th:action="@{/logout}" method="post">
+    <button class="btnLogout" style="border-radius: 10px 10px 10px 10px; border-color: #a19898" type="submit">Logout</button>
+</form>
+<table class="table table-striped table-hover" style="border-radius: 10px 10px 10px 10px; border-color: #a19898; border-width: medium" align="center">
+    <thead style="border-radius: 10px 10px 10px 10px; border-color: #a19898"></thead>
+    <tbody>
+    <th:block th:object="${user}">
+        <form th:method="DELETE" th:action="@{/admin/delete/{id}(id=${user.getId()})}">
+            <tr>
+                <td><th><p align="center">ID:</p></th></td>
+                <td th:text="*{id}" id="idDelete" align="center" style="border-radius: 10px 10px 10px 10px; border-color: #a19898"></td>
+            </tr>
+            <tr>
+                <td><th><p align="center">Name:</p></th></td>
+                <td th:text="*{name}" id="nameDelete" align="center" style="border-radius: 10px 10px 10px 10px; border-color: #a19898"></td>
+            </tr>
+            <tr>
+                <td><th><p align="center">Surname:</p></th></td>
+                <td th:text="*{surname}" id="surnameDelete" align="center" style="border-radius: 10px 10px 10px 10px; border-color: #a19898"></td>
+            </tr>
+            <tr>
+                <td><th><p align="center">Username:</p></th></td>
+                <td th:text="*{username}" id="usernameDelete" align="center" style="border-radius: 10px 10px 10px 10px; border-color: #a19898"></td>
+            </tr>
+            <tr>
+                <td><th><p align="center">Role:</p></th></td>
+                <td th:text="*{getRolesToString()}" id="rolesDelete" align="center" style="border-radius: 10px 10px 10px 10px; border-color: #a19898"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Delete user" style="border-radius: 10px 10px 10px 10px; border-color: #a19898"></td>
+            </tr>
+        </form>
+    </th:block>
+    </tbody>
+</table>
+</body>
+</html>
+
+
+
